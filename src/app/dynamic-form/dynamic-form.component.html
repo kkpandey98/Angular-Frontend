@@ -1,0 +1,113 @@
+<div class="page-area">
+    <div class="row justify-content-center pady-10px">
+        <div class="col-md-10 bg-blue rounded shadow">
+            <!-- <div>
+                <table>
+                    <tr>
+                        <td>fname</td>
+                        <td>dob</td>
+                        <td>gender</td>
+                    </tr>
+                    <tr *ngFor="let x of Temp">
+                        <td>{{x.fname}}</td>
+                        <td>{{x.dob}}</td>
+                        <td>{{x.gender}}</td>
+                    </tr>
+                </table>
+            </div> -->
+
+
+
+
+
+            <form [formGroup]="df" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div col-sm-3 class="ml-5">
+                        <div class="form-group">
+                            <label for="fname">First name</label>
+                            <input type="text" id="fname" class="form-control" name="fname" placeholder="Enter first name" formControlName="fname">
+                            <!-- <small class="text-danger" *ngIf="!fname.valid && (fname.dirty ||fname.touched)">
+                            First name is required</small> -->
+                        </div>
+                    </div>
+
+                    <div col-sm-3 class="ml-4">
+                        <div class="form-group">
+                            <label for="dob">DOB</label>
+                            <input type="date" id="dob" class="form-control" name="dob" placeholder="Enter dob" formControlName="dob">
+                        </div>
+                    </div>
+
+                    <div col-sm class="ml-4">
+                        <div class="form-group">
+                            <label for="gender"> Gender</label>
+                            <div>
+                                <select class="form-control" id="gender" name="gender" formControlName="gender">
+                                    <option value="" selected>--Select--</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div col-sm class="ml-4">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" name="address" class="form-control" placeholder="Enter address" formControlName="address">
+                        </div>
+                    </div>
+
+                    <div col-sm>
+                        <div class="form-group">
+                            <label> Action</label>
+                            <div>
+                                <button type="submit" class="btn btn-info rounded ml-3 buttonMargin" [disabled]="df.invalid">Create</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+            <div class="row mb-2" *ngFor="let x of Temp; let i=index">
+                <div col-sm-3 class="ml-5">
+
+                    <input type="text" class="form-control" name="fname" placeholder="Enter first name" value={{x.fname}}>
+                    <!-- <small class="text-danger" *ngIf="!fname.valid && (fname.dirty ||fname.touched)">
+                            First name is required</small> -->
+
+                </div>
+
+                <div col-sm-3 class="ml-4">
+                    <input type="datetime" class="form-control" name="dob" placeholder="Enter dob" value={{x.dob}}>
+                </div>
+
+                <div col-sm class="ml-4">
+
+                    <select class="form-control" name="gender" value={{x.gender}}>
+                        <option value="" selected>--Select--</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                </div>
+
+                <div col-sm class="ml-4">
+                    <div class="form-group">
+
+                        <input type="text" name="address" class="form-control" placeholder="Enter address" value={{x.address}}>
+                    </div>
+                </div>
+
+                <div col-sm>
+
+                    <button type="submit" class="btn btn-info rounded ml-3 ">Create</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

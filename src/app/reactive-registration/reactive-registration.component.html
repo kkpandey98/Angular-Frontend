@@ -1,0 +1,133 @@
+<div class="page-area">
+    <div class="row justify-content-center pady-10px">
+        <div class="col-md-6 bg-blue rounded shadow">
+            <form [formGroup]="reacForm" (ngSubmit)="onSubmit()">
+                <!-- Basic Infomation -->
+                <hr class="hr-text" data-content="Basic Infomation">
+                <div class="form-group">
+                    <label for="fname">First name</label>
+                    <input type="text" id="fname" class="form-control" name="fname" placeholder="Enter last name" formControlName="fname">
+                    <small class="text-danger" *ngIf="!fname.valid && (fname.dirty ||fname.touched)">
+                        First name is required</small>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last name </label>
+                    <input type="text" id="lname" class="form-control" name="lname" placeholder="Enter last name" formControlName="lname">
+                    <small class="text-danger" *ngIf="!reacForm.controls.lname?.valid && (reacForm.controls.lname?.dirty
+                    ||reacForm.controls.lname?.touched)">Last name is required</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" min="1" max="100" class="form-control" name="age" placeholder="Enter age" formControlName="age">
+                </div>
+
+                <div>
+                    <label> Gender</label><br>
+                    <div>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" value="male" formControlName="gender"> Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" value="female" formControlName="gender"> Female
+                        </label>
+                        <label class="radio-inline  ">
+                            <input type="radio" name="gender" value="other" formControlName="gender"> Other
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select class="form-control" id="category" name="category" formControlName="category">
+                        <option value="" disabled selected>--Select--</option>
+                        <option value="sc">SC</option>
+                        <option value="st">ST</option>
+                        <option value="obc">OBC</option>
+                        <option value="general">General</option>
+                    </select><br>
+                </div>
+
+
+                <!-- Address Infomation -->
+                <hr class="hr-text" data-content="Address Infomation">
+                <div formGroupName="Address">
+                    <div class="form-group">
+                        <label for="State">State</label>
+                        <select class="form-control" id="state" name="state" formControlName="state">
+                            <option value="" disabled selected>--Select--</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="maharashtra">Maharashtra</option>
+                            <option value="uttarakhand">Uttarakhand</option>
+                            <option value="punjab">Punjab</option>
+                            <option value="haryana">Haryana</option>
+                            <option value="madhya pradesh">Madhya Pradesh</option>
+                            <option value="rajasthan">Rajasthan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <select class="form-control" id="city" name="city" formControlName="city">
+                            <option value="" disabled selected>--Select--</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="nagpur">Nagpur</option>
+                            <option value="mohali">Mohali</option>
+                            <option value="dehradun">Dehradun</option>
+                            <option value="haldwani">Haldwani</option>
+                            <option value="indore">Indore</option>
+                            <option value="jaipur">Jaipur</option>
+                        </select>
+                        <!-- <small class="text-danger" *ngIf="!city.valid && city.touched">city is required</small> -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="district">District</label>
+                        <input type="text" name="district" class="form-control" placeholder="Enter district" formControlName="district">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pincode">Pin Code</label>
+                        <input type="text" name="pincode" class="form-control" placeholder="Enter pincode" formControlName="pincode">
+                    </div>
+                </div>
+
+                <!-- Login Infomation -->
+                <hr class="hr-text" data-content="Login Infomation">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" name="username" placeholder="Enter username" formControlName="username">
+                    <!-- <small class="text-danger" *ngIf="!username.valid && username.touched">username is required</small> -->
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" name="email" placeholder="Enter email" formControlName="email">
+                    <!-- <small class="text-danger" *ngIf="!email.valid && email.touched">email is required</small> -->
+                    <!-- <small class="text-danger" *ngIf="email.touched">city is required</small>
+                    <small class="text-danger" *ngIf="!email.valid">email is not valid</small> -->
+                </div>
+                <small class="text-danger" *ngIf="!email.valid && (email.dirty ||email.touched)">
+                    <div [hidden]="!email.errors.required">
+                        email is required
+                    </div>
+                    <div [hidden]="!email.errors.email">
+                        invalid email id
+                    </div>
+                </small>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" name="password" placeholder="Enter password" formControlName="password">
+                    <!-- <small class="text-danger" *ngIf="!password.valid && password.touched">password is required</small> -->
+                </div>
+
+
+                <button type="submit" class="btn btn-primary btn-success">Submit</button>
+                <!-- [disabled]="!regForm.valid" -->
+            </form>
+        </div>
+    </div>
+
+</div>
