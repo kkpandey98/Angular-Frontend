@@ -10,6 +10,7 @@ export class DynamicFormComponent implements OnInit {
   df: FormGroup;
   Temp= [] ;
 
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -24,26 +25,18 @@ export class DynamicFormComponent implements OnInit {
     })
   }
 
-  // get skills() : FormArray {
-  //   return this.df.get("skills") as FormArray
-  // }
- 
-  // newSkill(): FormGroup {
-  //   return this.fb.group({
-  //     skill: '',
-  //     exp: '',
-  //   })
-  // }
- 
-  // addSkills() {
-  //   this.skills.push(this.newSkill());
-  // }
+
 
   onSubmit() {
+    let userDetails = [];
+
     var temp = this.df.value; 
     this.Temp.push(temp);
     console.log(temp);
+    localStorage.setItem('temp',JSON.stringify(temp));
+    userDetails = JSON.parse(localStorage.getItem('temp'));
     this.createForm();
+
   }
 
 }
